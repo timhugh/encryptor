@@ -38,6 +38,7 @@ module.exports = (grunt) ->
           sourcemap: 'auto'
           update: true
           style: 'compact'
+          loadPath: 'vendor/bootstrap/stylesheets'
         files:[
           expand: true
           cwd: 'src/sass/'
