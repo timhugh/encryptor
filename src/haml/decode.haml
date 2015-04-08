@@ -1,13 +1,6 @@
 !!!
 %html
-  %head
-    %title Encryptor!
-
-    %script{src: 'https://code.jquery.com/jquery.js'}
-
-    %script{src: 'js/encryptor.js'}
-    %script{src: 'js/index.js'}
-    %link{rel: 'stylesheet', href: 'css/style.css'}
+  +include './src/haml/_head.haml'
 
   %body
     .container
@@ -29,3 +22,5 @@
                 .panel-body
                   #secret-message
       .col-sm-3
+
+    +include './src/haml/_footer.haml'

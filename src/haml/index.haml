@@ -1,13 +1,6 @@
 !!!
 %html
-  %head
-    %title Encryptor!
-
-    %script{src: 'https://code.jquery.com/jquery.js'}
-
-    %script{src: 'js/min/encryptor.min.js'}
-    %script{src: 'js/min/index.min.js'}
-    %link{rel: 'stylesheet', href: 'css/style.css'}
+  +include './src/haml/_head.haml'
 
   %body
     .container
@@ -28,3 +21,5 @@
               %label{for: 'share-link'} Your message can now be shared!
               %input#share-link
       .col-sm-3
+
+    +include './src/haml/_footer.haml'
