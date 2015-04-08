@@ -7,5 +7,6 @@ describe 'ENCRYPTOR', ->
 
   it 'returns a string that is not the original message', ->
     string = ENCRYPTOR.encrypt message, key
+    expect(string).to.be.a('string')
     expect(string).to.not.equal(message)
 
