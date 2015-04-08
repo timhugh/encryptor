@@ -5,6 +5,7 @@ module.exports = (grunt) ->
       compile:
         options:
           sourceMap: true
+          bare: true
         files:[
           expand: true
           cwd: 'src/'
@@ -45,12 +46,12 @@ module.exports = (grunt) ->
           ext: '.css'
         ]
     browserify:
-      standalone:
-        src: ['lib/**/*.js']
+      encryptor:
+        src: ['lib/encryptor.js']
         dest: 'js/encryptor.js'
-        options:
-          browserifyOptions:
-            standalone: 'encryptor'
+      options:
+        browserifyOptions:
+          standalone: 'encryptor'
 
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-watch'

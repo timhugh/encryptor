@@ -1,46 +1,22 @@
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.encryptor = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-(function() {
-  var CRYPTOJS, ENCRYPTOR;
+var CRYPTOJS, ENCRYPTOR;
 
-  CRYPTOJS = require('../vendor/aes.js');
+CRYPTOJS = require('../vendor/aes.js');
 
-  ENCRYPTOR = {
-    encrypt: function(message, key) {
-      return CRYPTOJS.AES.encrypt(message, key).toString();
-    },
-    decrypt: function(cypher, key) {
-      return CRYPTOJS.AES.decrypt(cypher, key).toString(CRYPTOJS.enc.Utf8);
-    }
-  };
+ENCRYPTOR = {
+  encrypt: function(message, key) {
+    return CRYPTOJS.AES.encrypt(message, key).toString();
+  },
+  decrypt: function(cypher, key) {
+    return CRYPTOJS.AES.decrypt(cypher, key).toString(CRYPTOJS.enc.Utf8);
+  }
+};
 
-  module.exports = ENCRYPTOR;
-
-}).call(this);
+module.exports = ENCRYPTOR;
 
 //# sourceMappingURL=encryptor.js.map
 
-},{"../vendor/aes.js":3}],2:[function(require,module,exports){
-(function() {
-  validateEncryptForm(function() {
-    if ($('.message-area').val() === "") {
-      error('.message-area', 'You must enter a message!');
-      return false;
-    }
-    if ($('.secret-key-input').val() === "") {
-      error('.secret-key-input', 'You must enter a secret key!');
-      return false;
-    }
-  });
-
-  error(function(field, message) {
-    return $(field).wrap($("div").addClass("error").prepend("<p>" + message + "</p>"));
-  });
-
-}).call(this);
-
-//# sourceMappingURL=ui.js.map
-
-},{}],3:[function(require,module,exports){
+},{"../vendor/aes.js":2}],2:[function(require,module,exports){
 /*
 CryptoJS v3.1.2
 code.google.com/p/crypto-js
@@ -79,5 +55,5 @@ d[k>>>24]^e[n>>>16&255]^j[g>>>8&255]^l[h&255]^c[p++],n=d[n>>>24]^e[g>>>16&255]^j
 
 module.exports = CryptoJS;
 
-},{}]},{},[1,2])(2)
+},{}]},{},[1])(1)
 });
