@@ -5,8 +5,8 @@
 
     %script{src: 'https://code.jquery.com/jquery.js'}
 
-    %script{src: 'js/encryptor.js'}
-    %script{src: 'js/index.js'}
+    %script{src: 'js/min/encryptor.min.js'}
+    %script{src: 'js/min/index.min.js'}
     %link{rel: 'stylesheet', href: 'css/style.css'}
 
   %body
@@ -19,11 +19,11 @@
           .panel-body.pane-container
             .pane#pane1
               %label{for: 'message-area'} Enter a message to share
-              %textarea{id: 'message-area'}
-              %label{for: 'secret-key-input'} Then enter a secret key
-              %input{id: 'secret-key-input'}
+              %textarea#message-area
+              %label{for: 'secret-key-input'} Enter a secret key
+              %input#secret-key-input
               %br
-              %input{type: 'button', class: 'btn btn-default', id: 'encrypt-button', value: 'Encrypt my message!'}
+              %input.btn.btn-default#encrypt-button{type: 'button', value: 'Encrypt my message!'}
             .pane#pane2.hidden-pane
               %p Your message can now be shared!
               %input{id: 'share-link', readonly: 'readonly'}
