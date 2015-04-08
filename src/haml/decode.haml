@@ -22,8 +22,10 @@
           .panel-body.pane-container
             .pane#pane1
               %p Enter your secret key to decrypt the message
-              %input{class: 'secret-key-input'}
-              %input{type: 'button', class: 'btn btn-default', id: 'encrypt-button', value: 'Decrypt the message!'}
+              %input.secret-key-input
+              %input.btn.btn-default#decrypt-button{type: 'button', value: 'Decrypt the message!'}
             .pane#pane2.hidden-pane
+              %p Your message is being decrypted...
+            .pane#pane3.hidden-pane
               %p.secret-message
       .col-sm-3
