@@ -1,18 +1,18 @@
 module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON 'package.json'
+
     coffee:
+      options:
+        sourceMap: true
+        bare: true
       compile:
-        options:
-          sourceMap: true
-          bare: true
-        files:[
-          expand: true
-          cwd: 'src/'
-          src: ['**/*.coffee']
-          dest: './'
-          ext: '.js'
-        ]
+        expand: true
+        cwd: 'src/'
+        src: ['**/*.coffee']
+        dest: './'
+        ext: '.js'
+
     watch:
       coffeeCompile:
         files: ['src/**/*.coffee']
@@ -23,29 +23,30 @@ module.exports = (grunt) ->
       sassCompile:
         files: ['src/sass/**/*.scss']
         tasks: ['sass']
+
     haml:
+      options:
+        language: 'coffee'
       compile:
-        files:[
-          expand: true
-          cwd: 'src/haml/'
-          src: ['**/*.haml']
-          dest: './'
-          ext: '.html'
-        ]
+        expand: true
+        cwd: 'src/haml/'
+        src: ['**/*.haml']
+        dest: './'
+        ext: '.html'
+
     sass:
+      options:
+        sourcemap: 'auto'
+        update: true
+        style: 'compact'
+        loadPath: 'vendor/bootstrap/stylesheets'
       compile:
-        options:
-          sourcemap: 'auto'
-          update: true
-          style: 'compact'
-          loadPath: 'vendor/bootstrap/stylesheets'
-        files:[
-          expand: true
-          cwd: 'src/sass/'
-          src: '**/*.scss'
-          dest: 'css/'
-          ext: '.css'
-        ]
+        expand: true
+        cwd: 'src/sass/'
+        src: '**/*.scss'
+        dest: 'css/'
+        ext: '.css'
+
     browserify:
       encryptor:
         src: ['lib/encryptor.js']
@@ -54,23 +55,22 @@ module.exports = (grunt) ->
         browserifyOptions:
           debug: true
           standalone: 'encryptor'
+
     uglify:
       options:
         sourceMap: true
       compile:
-        files:[
-          expand: true
-          cwd: 'js/'
-          src: '*.js'
-          dest: 'js/min/'
-          ext: '.min.js'
-        ]
+        expand: true
+        cwd: 'js/'
+        src: '*.js'
+        dest: 'js/min/'
+        ext: '.min.js'
 
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-watch'
-  grunt.loadNpmTasks 'grunt-haml2html'
+  grunt.loadNpmTasks 'grunt-haml'
   grunt.loadNpmTasks 'grunt-contrib-sass'
   grunt.loadNpmTasks 'grunt-browserify'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
 
-  grunt.registerTask 'default', ['coffee', 'haml', 'sass', 'browserify', 'uglify']
+  grunt.registerTask 'default', ['haml', 'sass', 'coffee', 'browserify', 'uglify']
