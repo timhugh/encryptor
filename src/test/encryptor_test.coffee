@@ -13,3 +13,4 @@ describe 'ENCRYPTOR', ->
   it 'can decrypt a cypher that it has encrypted', ->
     cypher = ENCRYPTOR.encrypt message, key
     decrypted_message = ENCRYPTOR.decrypt cypher, key
+    expect(decrypted_message).to.equal(message)

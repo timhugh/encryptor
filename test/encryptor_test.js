@@ -18,7 +18,8 @@
     return it('can decrypt a cypher that it has encrypted', function() {
       var cypher, decrypted_message;
       cypher = ENCRYPTOR.encrypt(message, key);
-      return decrypted_message = ENCRYPTOR.decrypt(cypher, key);
+      decrypted_message = ENCRYPTOR.decrypt(cypher, key);
+      return expect(decrypted_message).to.equal(message);
     });
   });
 
