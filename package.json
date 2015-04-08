@@ -1,0 +1,23 @@
+{
+  "name": "encryptor",
+  "version": "0.0.1",
+  "description": "A simple app for passing encrypted messages",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TimHugh/encryptor.git"
+  },
+  "author": "Tim Heuett",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TimHugh/encryptor/issues"
+  },
+  "homepage": "https://github.com/TimHugh/encryptor",
+  "dependencies": {
+    "chai": "^2.2.0",
+    "mocha": "^2.2.3"
+  }
+}
