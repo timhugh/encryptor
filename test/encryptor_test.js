@@ -15,11 +15,17 @@
       expect(cypher).to.be.a('string');
       return expect(cypher).to.not.equal(message);
     });
-    return it('can decrypt a cypher that it has encrypted', function() {
+    it('can decrypt a cypher that it has encrypted', function() {
       var cypher, decrypted_message;
       cypher = ENCRYPTOR.encrypt(message, key);
       decrypted_message = ENCRYPTOR.decrypt(cypher, key);
       return expect(decrypted_message).to.equal(message);
+    });
+    return it('can not decrypt a cypher with the wrong key', function() {
+      var cypher, decrypted_message;
+      cypher = ENCRYPTOR.encrypt(message, key);
+      decrypted_message = ENCRYPTOR.decrypt(cypher, "incorrect key");
+      return expect(decrypted_message).to.not.equal(message);
     });
   });
 

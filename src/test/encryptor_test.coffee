@@ -14,3 +14,8 @@ describe 'ENCRYPTOR', ->
     cypher = ENCRYPTOR.encrypt message, key
     decrypted_message = ENCRYPTOR.decrypt cypher, key
     expect(decrypted_message).to.equal(message)
+
+  it 'can not decrypt a cypher with the wrong key', ->
+    cypher = ENCRYPTOR.encrypt message, key
+    decrypted_message = ENCRYPTOR.decrypt cypher, "incorrect key"
+    expect(decrypted_message).to.not.equal(message)
