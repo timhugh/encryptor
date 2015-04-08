@@ -12,6 +12,17 @@ $ ->
     if !validateDecryptForm()
       switchPanes '#pane2', '#pane1'
       return
+    # timer for intentional suspense
+    setTimeout(displayDecryptedMessage, 2000)
+
+displayDecryptedMessage = ->
+  message = decryptMessage()
+  if message == ""
+    switchPanes '#pane2', '#pane1'
+    addErrorMessage '#secret-message', 'Incorrect key'
+  else
+    switchPanes '#pane2', '#pane3'
+    $('#secret-message').append(message)
 
 validateDecryptForm = ->
   removeErrors()
@@ -50,3 +61,11 @@ encryptMessage = ->
   key = $('#secret-key-input').val()
 
   window.location.origin + '/decode.html?key=' + encryptor.encrypt(message, key)
+
+decryptMessage = ->
+  key = $('#secret-key-input').val()
+
+  startOfCypher = window.location.href.indexOf('=') + 1
+  cypher = window.location.href[startOfCypher..]
+
+  encryptor.decrypt(cypher, key)

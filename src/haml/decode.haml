@@ -5,9 +5,6 @@
 
     %script{src: 'https://code.jquery.com/jquery.js'}
 
-    %link{rel: 'stylesheet', href: 'vendor/bootstrap/css/bootstrap.min.css'}
-    %link{rel: 'stylesheet', href: 'vendor/bootstrap/css/bootstrap-theme.min.css'}
-
     %script{src: 'js/encryptor.js'}
     %script{src: 'js/index.js'}
     %link{rel: 'stylesheet', href: 'css/style.css'}
@@ -21,11 +18,14 @@
             %h1.panel-title Encryptor
           .panel-body.pane-container
             .pane#pane1
-              %p Enter your secret key to decrypt the message
-              %input.secret-key-input
+              %label{for: 'secret-key-input'} Enter your secret key to decrypt the message
+              %input#secret-key-input
               %input.btn.btn-default#decrypt-button{type: 'button', value: 'Decrypt the message!'}
             .pane#pane2.hidden-pane
               %p Your message is being decrypted...
             .pane#pane3.hidden-pane
-              %p.secret-message
+              %p Decryption complete!
+              .panel.panel-default
+                .panel-body
+                  #secret-message
       .col-sm-3
