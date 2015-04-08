@@ -16,7 +16,7 @@ module.exports = (grunt) ->
     watch:
       coffeeCompile:
         files: ['src/**/*.coffee']
-        tasks: ['coffee', 'browserify']
+        tasks: ['coffee', 'browserify', 'uglify']
       hamlCompile:
         files: ['src/haml/**/*.haml']
         tasks: ['haml']
