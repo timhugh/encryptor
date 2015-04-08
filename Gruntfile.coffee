@@ -46,7 +46,7 @@ module.exports = (grunt) ->
         ]
     browserify:
       standalone:
-        src: ['lib/encryptor.js']
+        src: ['lib/**/*.js']
         dest: 'js/encryptor.js'
         options:
           browserifyOptions:
