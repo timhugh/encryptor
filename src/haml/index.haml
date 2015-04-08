@@ -1,0 +1,29 @@
+!!!
+%html
+  %head
+    %title Encryptor!
+
+    %script{src: 'https://code.jquery.com/jquery.js'}
+
+    %link{rel: 'stylesheet', href: 'vendor/bootstrap/css/bootstrap.min.css'}
+    %link{rel: 'stylesheet', href: 'vendor/bootstrap/css/bootstrap-theme.min.css'}
+
+    %script{src: 'js/encryptor.js'}
+    %link{rel: 'stylesheet', href: 'css/style.css'}
+
+  %body
+    .container
+      .col-sm-3
+      .col-sm-6
+        .panel.panel-default
+          .panel-heading
+            %h1.panel-title Encryptor
+          .panel-body.pane-container
+            .pane#pane1
+              %p Enter a message to share
+              %textarea{class: 'message-area'}
+              %p Then enter a secret key
+              %input{class: 'secret-key-input'}
+              %br
+              %input{type: 'button', class: 'btn btn-default', id: 'encrypt-button', value: 'Encrypt my message!'}
+      .col-sm-3
