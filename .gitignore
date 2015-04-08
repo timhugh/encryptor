@@ -1,3 +1,10 @@
 
 node_modules/
 .sass-cache/
+
+# ignore compiled assets
+css/
+js/
+*.html
+lib/
+test/
