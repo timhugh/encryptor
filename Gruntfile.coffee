@@ -52,12 +52,25 @@ module.exports = (grunt) ->
         dest: 'js/encryptor.js'
       options:
         browserifyOptions:
+          debug: true
           standalone: 'encryptor'
+    uglify:
+      options:
+        sourceMap: true
+      compile:
+        files:[
+          expand: true
+          cwd: 'js/'
+          src: '*.js'
+          dest: 'js/min/'
+          ext: '.min.js'
+        ]
 
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-haml2html'
   grunt.loadNpmTasks 'grunt-contrib-sass'
   grunt.loadNpmTasks 'grunt-browserify'
+  grunt.loadNpmTasks 'grunt-contrib-uglify'
 
-  grunt.registerTask 'default', ['coffee', 'haml', 'sass', 'browserify']
+  grunt.registerTask 'default', ['coffee', 'haml', 'sass', 'browserify', 'uglify']
