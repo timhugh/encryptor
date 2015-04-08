@@ -1,0 +1,25 @@
+!!!
+%html
+  +include './src/haml/_head.haml'
+
+  %body
+    .container
+      .col-sm-3
+      .col-sm-6
+        .panel.panel-default.main-panel
+          .panel-heading
+            %h1.panel-title Encryptor
+          .panel-body.pane-container
+            .pane#pane1
+              %label{for: 'message-area'} Enter a message to share:
+              %textarea#message-area
+              %label{for: 'secret-key-input'} Enter a secret key:
+              %input#secret-key-input
+              %br
+              %input.btn.btn-default#encrypt-button{type: 'button', value: 'Encrypt my message!'}
+            .pane#pane2.hidden-pane
+              %label{for: 'share-link'} Your message can now be shared!
+              %input#share-link
+      .col-sm-3
+
+    +include './src/haml/_footer.haml'

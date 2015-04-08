@@ -1,0 +1,27 @@
+!!!
+%html
+  +include './src/haml/_head.haml'
+
+  %body
+    .container
+      .col-sm-3
+      .col-sm-6
+        .panel.panel-default.main-panel
+          .panel-heading
+            %h1.panel-title Encryptor
+          .panel-body.pane-container
+            .pane#pane1
+              %label{for: 'secret-key-input'} Enter your secret key to decrypt the message:
+              %input#secret-key-input
+              %br
+              %input.btn.btn-default#decrypt-button{type: 'button', value: 'Decrypt the message!'}
+            .pane#pane2.hidden-pane
+              %p Your message is being decrypted...
+            .pane#pane3.hidden-pane
+              %p Decryption complete!
+              .panel.panel-default.secret-message
+                .panel-body
+                  #secret-message
+      .col-sm-3
+
+    +include './src/haml/_footer.haml'
