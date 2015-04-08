@@ -1,2 +1,3 @@
-# ignore node package data
+
 node_modules/
+.sass-cache/
