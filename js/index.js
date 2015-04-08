@@ -1,4 +1,4 @@
-var encryptMessage, error, submitForm, validateEncryptForm;
+var encryptMessage, error, removeErrors, submitForm, validateEncryptForm;
 
 $(function() {
   return $('#encrypt-button').click(submitForm);
@@ -14,8 +14,7 @@ submitForm = function() {
 };
 
 validateEncryptForm = function() {
-  $('.error p').remove();
-  $('.error').children().unwrap();
+  removeErrors();
   if ($('.message-area').val() === '') {
     error('.message-area', 'You must enter a message!');
     return false;
@@ -25,6 +24,11 @@ validateEncryptForm = function() {
     return false;
   }
   return true;
+};
+
+removeErrors = function() {
+  $('.error p').remove();
+  return $('.error').children().unwrap();
 };
 
 error = function(field, message) {
@@ -39,4 +43,4 @@ encryptMessage = function() {
   return window.location.origin + "/decode.html?key=" + encryptor.encrypt(message, key);
 };
 
-//# sourceMappingURL=ui.js.map
+//# sourceMappingURL=index.js.map

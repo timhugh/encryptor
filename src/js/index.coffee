@@ -9,8 +9,7 @@ submitForm = ->
   $("#pane2").show()
 
 validateEncryptForm = ->
-  $('.error p').remove()
-  $('.error').children().unwrap()
+  removeErrors()
   if $('.message-area').val() == ''
     error '.message-area', 'You must enter a message!'
     return false
@@ -18,6 +17,10 @@ validateEncryptForm = ->
     error '.secret-key-input', 'You must enter a secret key!'
     return false
   true
+
+removeErrors = ->
+  $('.error p').remove()
+  $('.error').children().unwrap()
 
 error = (field, message) ->
   $(field).wrap( $('<div>').addClass('error') )
