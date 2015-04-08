@@ -6,19 +6,22 @@ module.exports = (grunt) ->
         options:
           sourceMap: true
         files:[
-            expand: true
-            cwd: 'src/'
-            src: ['**/*.coffee']
-            dest: './'
-            ext: '.js'
-          ]
+          expand: true
+          cwd: 'src/'
+          src: ['**/*.coffee']
+          dest: './'
+          ext: '.js'
+        ]
     watch:
-      scripts:
+      coffeeCompile:
         files: ['src/**/*.coffee']
-        tasks: ['coffee']
-      templates:
-        files: ['src/*.haml']
+        tasks: ['coffee', 'browserify']
+      hamlCompile:
+        files: ['src/haml/*.haml']
         tasks: ['haml']
+      sassCompile:
+        files: ['src/sass/**/*.scss']
+        tasks: ['sass']
     haml:
       compile:
         files:[
@@ -41,10 +44,18 @@ module.exports = (grunt) ->
           dest: 'css/'
           ext: '.css'
         ]
+    browserify:
+      standalone:
+        src: ['lib/encryptor.js']
+        dest: 'js/encryptor.js'
+        options:
+          browserifyOptions:
+            standalone: 'encryptor'
 
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-haml2html'
   grunt.loadNpmTasks 'grunt-contrib-sass'
+  grunt.loadNpmTasks 'grunt-browserify'
 
-  grunt.registerTask 'default', ['coffee']
+  grunt.registerTask 'default', ['coffee', 'haml', 'sass', 'browserify']
