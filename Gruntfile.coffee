@@ -26,7 +26,7 @@ module.exports = (grunt) ->
       compile:
         files:[
           expand: true
-          cwd: 'src/'
+          cwd: 'src/haml/'
           src: ['**/*.haml']
           dest: './'
           ext: '.html'
