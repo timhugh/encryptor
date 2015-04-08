@@ -1,3 +1,9 @@
+@import '_bootstrap';
+
 .hidden-pane {
   display: none;
+}
+
+input {
+  @extend .form-control;
 }
