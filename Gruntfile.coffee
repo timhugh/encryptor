@@ -17,7 +17,7 @@ module.exports = (grunt) ->
         files: ['src/**/*.coffee']
         tasks: ['coffee', 'browserify']
       hamlCompile:
-        files: ['src/haml/*.haml']
+        files: ['src/haml/**/*.haml']
         tasks: ['haml']
       sassCompile:
         files: ['src/sass/**/*.scss']
