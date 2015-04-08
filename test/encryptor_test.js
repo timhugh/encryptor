@@ -9,11 +9,16 @@
     var key, message;
     message = "This is a secret message!";
     key = "secret key";
-    return it('returns a cypher that is not the original message', function() {
+    it('returns a cypher that is not the original message', function() {
       var cypher;
       cypher = ENCRYPTOR.encrypt(message, key);
       expect(cypher).to.be.a('string');
       return expect(cypher).to.not.equal(message);
+    });
+    return it('can decrypt a cypher that it has encrypted', function() {
+      var cypher, decrypted_message;
+      cypher = ENCRYPTOR.encrypt(message, key);
+      return decrypted_message = ENCRYPTOR.decrypt(cypher, key);
     });
   });
 

@@ -9,3 +9,7 @@ describe 'ENCRYPTOR', ->
     cypher = ENCRYPTOR.encrypt message, key
     expect(cypher).to.be.a('string')
     expect(cypher).to.not.equal(message)
+
+  it 'can decrypt a cypher that it has encrypted', ->
+    cypher = ENCRYPTOR.encrypt message, key
+    decrypted_message = ENCRYPTOR.decrypt cypher, key
