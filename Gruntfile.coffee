@@ -3,6 +3,8 @@ module.exports = (grunt) ->
     pkg: grunt.file.readJSON 'package.json'
     coffee:
       compile:
+        options:
+          sourceMap: true
         files:[
             expand: true
             cwd: 'src/'
@@ -26,9 +28,23 @@ module.exports = (grunt) ->
           dest: './'
           ext: '.html'
         ]
+    sass:
+      compile:
+        options:
+          sourcemap: 'auto'
+          update: true
+          style: 'compact'
+        files:[
+          expand: true
+          cwd: 'src/sass/'
+          src: '**/*.scss'
+          dest: 'css/'
+          ext: '.css'
+        ]
 
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-haml2html'
+  grunt.loadNpmTasks 'grunt-contrib-sass'
 
   grunt.registerTask 'default', ['coffee']
