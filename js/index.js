@@ -8,19 +8,19 @@ submitForm = function() {
   if (!validateEncryptForm()) {
     return;
   }
-  $('.share-link').val(encryptMessage);
+  $('#share-link').val(encryptMessage);
   $("#pane1").hide();
   return $("#pane2").show();
 };
 
 validateEncryptForm = function() {
   removeErrors();
-  if ($('.message-area').val() === '') {
-    error('.message-area', 'You must enter a message!');
+  if ($('#message-area').val() === '') {
+    error('#message-area', 'You must enter a message!');
     return false;
   }
-  if ($('.secret-key-input').val() === '') {
-    error('.secret-key-input', 'You must enter a secret key!');
+  if ($('#secret-key-input').val() === '') {
+    error('#secret-key-input', 'You must enter a secret key!');
     return false;
   }
   return true;
@@ -38,8 +38,8 @@ error = function(field, message) {
 
 encryptMessage = function() {
   var key, message;
-  message = $('.message-area').val();
-  key = $('.secret-key-input').val();
+  message = $('#message-area').val();
+  key = $('#secret-key-input').val();
   return window.location.origin + "/decode.html?key=" + encryptor.encrypt(message, key);
 };
 

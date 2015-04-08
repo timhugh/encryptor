@@ -18,13 +18,13 @@
             %h1.panel-title Encryptor
           .panel-body.pane-container
             .pane#pane1
-              %p Enter a message to share
-              %textarea{class: 'message-area'}
-              %p Then enter a secret key
-              %input{class: 'secret-key-input'}
+              %label{for: 'message-area'} Enter a message to share
+              %textarea{id: 'message-area'}
+              %label{for: 'secret-key-input'} Then enter a secret key
+              %input{id: 'secret-key-input'}
               %br
               %input{type: 'button', class: 'btn btn-default', id: 'encrypt-button', value: 'Encrypt my message!'}
             .pane#pane2.hidden-pane
               %p Your message can now be shared!
-              %input{class: 'share-link', readonly: 'readonly'}
+              %input{id: 'share-link', readonly: 'readonly'}
       .col-sm-3

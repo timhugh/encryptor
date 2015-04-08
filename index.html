@@ -3,8 +3,6 @@
   <head>
     <title>Encryptor!</title>
     <script src='https://code.jquery.com/jquery.js'></script>
-    <link href='vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'>
-    <link href='vendor/bootstrap/css/bootstrap-theme.min.css' rel='stylesheet'>
     <script src='js/encryptor.js'></script>
     <script src='js/index.js'></script>
     <link href='css/style.css' rel='stylesheet'>
@@ -19,16 +17,16 @@
           </div>
           <div class='panel-body pane-container'>
             <div class='pane' id='pane1'>
-              <p>Enter a message to share</p>
-              <textarea class='message-area'></textarea>
-              <p>Then enter a secret key</p>
-              <input class='secret-key-input'>
+              <label for='message-area'>Enter a message to share</label>
+              <textarea id='message-area'></textarea>
+              <label for='secret-key-input'>Then enter a secret key</label>
+              <input id='secret-key-input'>
               <br>
               <input class='btn btn-default' id='encrypt-button' type='button' value='Encrypt my message!'>
             </div>
             <div class='pane hidden-pane' id='pane2'>
               <p>Your message can now be shared!</p>
-              <input class='share-link' readonly='readonly'>
+              <input id='share-link' readonly='readonly'>
             </div>
           </div>
         </div>
