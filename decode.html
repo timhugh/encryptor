@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Encryptor!</title>
+  <script src='https://code.jquery.com/jquery.js'></script>
+  <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+  <script src='js/min/encryptor.min.js'></script>
+  <script src='js/min/index.min.js'></script>
+  <link rel='stylesheet' href='css/style.css'>
+</head>
+  <body>
+    <div class='container'>
+      <div class='col-sm-3'></div>
+      <div class='col-sm-6'>
+        <div class='main-panel panel panel-default'>
+          <div class='panel-heading'>
+            <h1 class='panel-title'>Encryptor</h1>
+          </div>
+          <div class='pane-container panel-body'>
+            <div class='pane' id='pane1'>
+              <label for='secret-key-input'>Enter your secret key to decrypt the message:</label>
+              <input id='secret-key-input'>
+              <br>
+              <input class='btn btn-default' id='decrypt-button' type='button' value='Decrypt the message!'>
+            </div>
+            <div class='hidden-pane pane' id='pane2'>
+              <p>Your message is being decrypted...</p>
+            </div>
+            <div class='hidden-pane pane' id='pane3'>
+              <p>Decryption complete!</p>
+              <div class='panel panel-default secret-message'>
+                <div class='panel-body'>
+                  <div id='secret-message'></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='col-sm-3'></div>
+    </div>
+    <footer>
+  <div class='credit'>
+    Created by
+    <a href='http://timheuett.com'>Tim Heuett</a>
+  </div>
+  <div class='github-icon'>
+    <a href='http://github.com/TimHugh/encryptor'>
+      <span class='fa fa-2x fa-github'></span>
+    </a>
+  </div>
+</footer>
+  </body>
+</html>
