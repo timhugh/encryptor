@@ -18,7 +18,7 @@ $(function() {
       switchPanes('#pane2', '#pane1');
       return;
     }
-    return setTimeout(displayDecryptedMessage, 2000);
+    return setTimeout(displayDecryptedMessage, 100);
   });
 });
 

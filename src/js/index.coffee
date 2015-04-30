@@ -13,7 +13,7 @@ $ ->
       switchPanes '#pane2', '#pane1'
       return
     # timer for intentional suspense
-    setTimeout(displayDecryptedMessage, 2000)
+    setTimeout(displayDecryptedMessage, 500)
 
 displayDecryptedMessage = ->
   message = decryptMessage()
