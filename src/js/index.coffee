@@ -60,7 +60,7 @@ encryptMessage = ->
   message = $('#message-area').val()
   key = $('#secret-key-input').val()
 
-  window.location.origin + '/decode.html?key=' + encryptor.encrypt(message, key)
+  window.location.href + '/decode.html?key=' + encryptor.encrypt(message, key)
 
 decryptMessage = ->
   key = $('#secret-key-input').val()

@@ -83,7 +83,7 @@ encryptMessage = function() {
   var key, message;
   message = $('#message-area').val();
   key = $('#secret-key-input').val();
-  return window.location.origin + '/decode.html?key=' + encryptor.encrypt(message, key);
+  return window.location.href + '/decode.html?key=' + encryptor.encrypt(message, key);
 };
 
 decryptMessage = function() {
