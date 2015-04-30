@@ -12,13 +12,19 @@ $(function() {
       return $(this).select();
     });
   });
-  return $('#decrypt-button').click(function() {
+  $('#decrypt-button').click(function() {
     switchPanes('#pane1', '#pane2');
     if (!validateDecryptForm()) {
       switchPanes('#pane2', '#pane1');
       return;
     }
-    return setTimeout(displayDecryptedMessage, 100);
+    return setTimeout(displayDecryptedMessage, 500);
+  });
+  return $(document).keydown(function(e) {
+    if (e.keycode === 13) {
+      $('#encrypt-button').click();
+      return $('#decrypt-button').click();
+    }
   });
 });
 

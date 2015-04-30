@@ -15,6 +15,11 @@ $ ->
     # timer for intentional suspense
     setTimeout(displayDecryptedMessage, 500)
 
+  $(document).keydown (e) ->
+    if(e.keycode == 13)
+      $('#encrypt-button').click()
+      $('#decrypt-button').click()
+
 displayDecryptedMessage = ->
   message = decryptMessage()
   if message == ""
