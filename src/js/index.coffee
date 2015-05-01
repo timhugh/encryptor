@@ -16,7 +16,7 @@ $ ->
     setTimeout(displayDecryptedMessage, 500)
 
   $(document).keydown (e) ->
-    if(e.keycode == 13)
+    if(+e.keyCode == +13) # shorthand toInt trick I picked up from stack overflow
       $('#encrypt-button').click()
       $('#decrypt-button').click()
 

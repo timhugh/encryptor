@@ -21,7 +21,7 @@ $(function() {
     return setTimeout(displayDecryptedMessage, 500);
   });
   return $(document).keydown(function(e) {
-    if (e.keycode === 13) {
+    if (+e.keyCode === +13) {
       $('#encrypt-button').click();
       return $('#decrypt-button').click();
     }
